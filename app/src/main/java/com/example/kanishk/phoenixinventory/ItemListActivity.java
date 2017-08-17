@@ -1,5 +1,7 @@
 package com.example.kanishk.phoenixinventory;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class ItemListActivity extends AppCompatActivity {
 
@@ -44,6 +47,21 @@ public class ItemListActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent emailIntent = new Intent(android.content.Intent.ACTION_SENDTO);
+            emailIntent.setData(new Uri.Builder().scheme("mailto").build());
+            //emailIntent.setType("message/rfc822");
+            emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[] {
+                    "kanishksharma809@gmail.com" });
+            emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Regarding Phoenix-Inventory-App");
+            emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,"Hi Kanishk,\n\nThis app is showing a bug that -->\n\n");
+            //emailIntent.setType("text/plain");
+            if (emailIntent.resolveActivity(getPackageManager()) != null) {
+                startActivity(emailIntent);
+                //Toast.makeText(MainActivity.this, "Mail Send, (^_^)", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(ItemListActivity.this, "Mail Sending failed (-_-)", Toast.LENGTH_SHORT).show();
+            }
             return true;
         }
 
