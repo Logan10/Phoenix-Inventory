@@ -19,13 +19,12 @@ import java.util.Locale;
 public class FirstRunActivity extends AppCompatActivity {
 
     TextToSpeech speaker;
-    String username;
+    public String username;
     int result;
     Button DONE;
-
     EditText name_of_user;
 
-    public SQLiteDatabase mybase = this.openOrCreateDatabase("data",MODE_PRIVATE,null);
+    SQLiteDatabase mybase = this.openOrCreateDatabase("mybase",MODE_PRIVATE,null);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,6 @@ public class FirstRunActivity extends AppCompatActivity {
         setContentView(R.layout.activity_first_run);
 
         mybase.execSQL("CREATE TABLE IF NOT EXISTS table (name)");
-
         speaker = new TextToSpeech(FirstRunActivity.this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {

@@ -27,14 +27,12 @@ public class ItemListActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private Context context;
     public static String username;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
 
         boolean isFirstRun = getSharedPreferences("firstPreference", MODE_PRIVATE).getBoolean("isfirstrun",true);//*******
-
         if(isFirstRun) {
             getSharedPreferences("firstPreference", MODE_PRIVATE).edit().
                     putBoolean("isfirstrun",false).apply();
