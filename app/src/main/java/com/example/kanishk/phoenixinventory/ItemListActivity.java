@@ -1,27 +1,59 @@
 package com.example.kanishk.phoenixinventory;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class ItemListActivity extends AppCompatActivity {
 
+    private SectionPageAdapter mSectionPageAdapter;
     private ViewPager mViewPager;
+    private Context context;
+    public static String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_list);
+
+        boolean isFirstRun = getSharedPreferences("firstPreference", MODE_PRIVATE).getBoolean("isfirstrun",true);//*******
+
+        if(isFirstRun) {
+            getSharedPreferences("firstPreference", MODE_PRIVATE).edit().
+                    putBoolean("isfirstrun",false).apply();
+            Intent IntentFirstRunAct = new Intent(ItemListActivity.this,FirstRunActivity.class);
+            finish();
+            startActivity(IntentFirstRunAct);
+        }
+
+//        BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver()
+//        {
+//            @Override
+//            public void onReceive(Context context, Intent FirstRunActivityOver)
+//            {
+//                username = FirstRunActivityOver.getStringExtra("FIRST_NAME");
+//            }
+//        };
+
+        username = getIntent().getStringExtra("First_Name");
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -36,12 +68,17 @@ public class ItemListActivity extends AppCompatActivity {
 
         Log.i("Hello", "38");
 
-        //mViewPager = (ViewPager)findViewById(R.id.container);
-        //setUpViewPager(mViewPager);
+        mSectionPageAdapter = new SectionPageAdapter(getSupportFragmentManager());
+        mViewPager = (ViewPager)findViewById(R.id.container);
+        mViewPager.setCurrentItem(1);
+        setUpViewPager(mViewPager);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        //tabLayout.setupWithViewPager(mViewPager);
-        //tablayout.
+        tabLayout.setupWithViewPager(mViewPager);
+        //TabItem about = (TabItem) findViewById(R.id.about_tab);
+        //TabItem list = (TabItem) findViewById(R.id.item_tab);
+        //TabItem members = (TabItem) findViewById(R.id.members_tab);
+
 
     }
 
@@ -84,13 +121,22 @@ public class ItemListActivity extends AppCompatActivity {
     }
 
 
-    /*private void setUpViewPager(ViewPager viewPager) {
+    private void setUpViewPager(ViewPager viewPager) {
         Log.i("Hello", "88");
         SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new AboutFragment(), "AboutFragment");
-        adapter.addFragment(new ItemListFragment(), "ItemListFragment");
-        adapter.addFragment(new MembersFragment(), "MembersFragment");
+        adapter.addFragment(new AboutFragment(), "About");
+        adapter.addFragment(new ItemListFragment(), "Inventory");
+        adapter.addFragment(new MembersFragment(), "Members");
         viewPager.setAdapter(adapter);
-    }*/
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mViewPager.setCurrentItem(1);
+        //String naam = "Hey "+mPreferences.getString(getString(R.string.u_name)+",","");
+        //Name.setText(naam);
+        //Name.setText("Hey "+ mPreferences.getString(getString(R.string.u_name) +",",""));
+    }
 
 }

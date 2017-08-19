@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Phoenix Inventory</string>
     <string name="action_settings">Report a Bug</string>
+    <string name="Hello">Hello,</string>
+    <string name="askname">Type your name</string>
+
 </resources>
