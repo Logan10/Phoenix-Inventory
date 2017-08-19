@@ -40,6 +40,9 @@ public class ItemListActivity extends AppCompatActivity {
             finish();
             startActivity(IntentFirstRunAct);
         }
+        Intent FirstRunActivityOver = getIntent();
+        username = FirstRunActivityOver.getStringExtra("FIRST_NAME");
+        getSharedPreferences("NAME",MODE_PRIVATE).edit().putString("name",username);
 
 //        BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver()
 //        {

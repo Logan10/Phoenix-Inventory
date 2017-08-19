@@ -19,19 +19,19 @@ import java.util.Locale;
 public class FirstRunActivity extends AppCompatActivity {
 
     TextToSpeech speaker;
-    public String username;
+    public static String username;
     int result;
     Button DONE;
     EditText name_of_user;
 
-    SQLiteDatabase mybase = this.openOrCreateDatabase("mybase",MODE_PRIVATE,null);
+    //SQLiteDatabase mybase = this.openOrCreateDatabase("mybase",MODE_PRIVATE,null);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_run);
 
-        mybase.execSQL("CREATE TABLE IF NOT EXISTS table (name)");
+        //mybase.execSQL("CREATE TABLE IF NOT EXISTS table (name)");
         speaker = new TextToSpeech(FirstRunActivity.this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -56,7 +56,7 @@ public class FirstRunActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                //username = name_of_user.getText().toString();
+                username = name_of_user.getText().toString();
             }
         });
 
@@ -80,9 +80,9 @@ public class FirstRunActivity extends AppCompatActivity {
         username = name_of_user.getText().toString();
         //ed.putString("USERNAME",username).apply();
         speaker.speak("Hi "+username,TextToSpeech.QUEUE_FLUSH,null,null);
-        mybase.execSQL("INSERT INTO table (name) VALUES (username)");
+        //mybase.execSQL("INSERT INTO table (name) VALUES (username)");
         Intent FirstRunActivityOver = new Intent(FirstRunActivity.this, ItemListActivity.class);
-        //FirstRunActivityOver.putExtra("FIRST_NAME",username);
+        FirstRunActivityOver.putExtra("FIRST_NAME",username);
         finish();
         startActivity(FirstRunActivityOver);
     }
