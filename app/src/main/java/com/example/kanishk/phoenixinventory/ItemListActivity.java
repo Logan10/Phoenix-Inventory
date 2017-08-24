@@ -24,9 +24,10 @@ import java.util.Calendar;
 public class ItemListActivity extends AppCompatActivity {
 
     private SectionPageAdapter mSectionPageAdapter;
+    public static int FRAG_NO = 1;
     private ViewPager mViewPager;
-    private Context context;
     public static String username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +43,7 @@ public class ItemListActivity extends AppCompatActivity {
         }
         Intent FirstRunActivityOver = getIntent();
         username = FirstRunActivityOver.getStringExtra("FIRST_NAME");
-        getSharedPreferences("NAME",MODE_PRIVATE).edit().putString("name",username);
+        getSharedPreferences("NAME",MODE_PRIVATE).edit().putString("name",username).apply();
 
 //        BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver()
 //        {
@@ -58,20 +59,22 @@ public class ItemListActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        //.setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        //.setAction("Action", null).show();
+//            }
+//        });
 
         Log.i("Hello", "38");
 
         mSectionPageAdapter = new SectionPageAdapter(getSupportFragmentManager());
+        //ViewPager mViewPager;
         mViewPager = (ViewPager)findViewById(R.id.container);
-        mViewPager.setCurrentItem(1);
+        mViewPager.setCurrentItem(FRAG_NO);
+        //mViewPager.setCurrentItem(1);
         setUpViewPager(mViewPager);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -134,7 +137,8 @@ public class ItemListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mViewPager.setCurrentItem(1);
+        mViewPager.setCurrentItem(FRAG_NO);
+        FRAG_NO = 1;
         //String naam = "Hey "+mPreferences.getString(getString(R.string.u_name)+",","");
         //Name.setText(naam);
         //Name.setText("Hey "+ mPreferences.getString(getString(R.string.u_name) +",",""));

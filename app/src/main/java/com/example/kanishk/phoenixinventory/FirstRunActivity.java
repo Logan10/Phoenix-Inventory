@@ -1,6 +1,7 @@
 package com.example.kanishk.phoenixinventory;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,8 @@ public class FirstRunActivity extends AppCompatActivity {
 
     TextToSpeech speaker;
     public static String username;
+    public static final String NAME_PREFS = "NamePrefs";
+    public static final String DISPLAY_NAME_KEY = "Username";
     int result;
     Button DONE;
     EditText name_of_user;
@@ -78,9 +81,10 @@ public class FirstRunActivity extends AppCompatActivity {
     }
     private void onclick() {
         username = name_of_user.getText().toString();
-        //ed.putString("USERNAME",username).apply();
         speaker.speak("Hi "+username,TextToSpeech.QUEUE_FLUSH,null,null);
-        //mybase.execSQL("INSERT INTO table (name) VALUES (username)");
+        SharedPreferences prefs = getSharedPreferences(NAME_PREFS,0);
+        prefs.edit().putString(DISPLAY_NAME_KEY,username).apply();
+
         Intent FirstRunActivityOver = new Intent(FirstRunActivity.this, ItemListActivity.class);
         FirstRunActivityOver.putExtra("FIRST_NAME",username);
         finish();

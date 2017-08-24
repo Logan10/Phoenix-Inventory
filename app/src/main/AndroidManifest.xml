@@ -25,6 +25,22 @@
         </activity>
         <activity android:name=".FirstRunActivity">
         </activity>
+        <activity
+            android:name=".CurrentSubDivision"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <!-- android:label="@string/title_activity_current_sub_division" -->
+        <activity
+            android:name=".ItemEditingActivity"
+            android:label="@string/title_activity_item_editing"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".ChatBoxActivity"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
