@@ -128,7 +128,7 @@ public class ItemListActivity extends AppCompatActivity {
     private void setUpViewPager(ViewPager viewPager) {
         Log.i("Hello", "88");
         SectionPageAdapter adapter = new SectionPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new AboutFragment(), "About");
+        adapter.addFragment(new AboutFragment(), "About/Info");
         adapter.addFragment(new ItemListFragment(), "Inventory");
         adapter.addFragment(new MembersFragment(), "Members");
         viewPager.setAdapter(adapter);

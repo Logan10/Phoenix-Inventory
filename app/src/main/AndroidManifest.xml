@@ -33,7 +33,7 @@
         <!-- android:label="@string/title_activity_current_sub_division" -->
         <activity
             android:name=".ItemEditingActivity"
-            android:label="@string/title_activity_item_editing"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity

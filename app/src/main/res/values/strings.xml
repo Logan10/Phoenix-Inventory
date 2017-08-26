@@ -8,6 +8,7 @@
 
     <string name="select_subdivision">Select the Sub-Division</string>
     <string name="hint">Type your Message</string>
+    <string name="hintAbout">Share some information related to the Club</string>
 
     <string name="nikhil_sir">\tNikhil Paliwal\n7737260009 (Co-ordinator)</string>
 
@@ -15,6 +16,8 @@
     <string name="subEmbe">Prajjval Bharadwaj\n9636731362 (Sub Co-ordinator)</string>
     <string name="subDip">Nakul Agarwal\n9636731362 (Sub Co-ordinator)</string>
     <string name="subQuarks">Vishal Jain  7877376851\nAnjali Gupta  9460797535\n\t(Sub Co-ordinators)</string>
+
+    <string name="itemHint">Type Something about this artifact</string>
 
     <string name="robo">Robotics</string>
     <string name="emb">Electronics and Embedded</string>
@@ -80,34 +83,34 @@
     </string-array>
 
     <string-array name="Item_list">
-        <item>9V Batteries</item>
-        <item>12V Batteries</item>
-        <item>12V Car Stereo Battery</item>
-        <item>Batteries</item>
-        <item>Bus Wires</item>
-        <item>Chasis</item>
-        <item>Cutter</item>
-        <item>Cycle Brakes</item>
-        <item>DC Motors</item>
-        <item>DPDT Switches</item>
-        <item>Extension Board</item>
-        <item>Fecl3 Solution</item>
-        <item>IR Led</item>
-        <item>Iron Plate</item>
-        <item>Iron Rods(Drone Obstruction)</item>
-        <item>MD-119 Board</item>
-        <item>Nuts and Bolts Box</item>
-        <item>QuadCop Frame with 3 Brushless Motors</item>
-        <item>Quad Remote</item>
-        <item>Screw Driver Set</item>
-        <item>Small Wooden Planks</item>
-        <item>Socket Accessory Box</item>
-        <item>Soldering Rod</item>
-        <item>Thermocol</item>
-        <item>Torque Switch Boards</item>
-        <item>Transporter Material</item>
-        <item>Ultra Motor Charger(3A/48V)</item>
-        <item>Wheels</item>
+        <item>•\t\t\t9V Batteries</item>
+        <item>•\t\t\t12V Batteries</item>
+        <item>•\t\t\t12V Car Stereo Battery</item>
+        <item>•\t\t\tBatteries</item>
+        <item>•\t\t\tBus Wires</item>
+        <item>•\t\t\tChasis</item>
+        <item>•\t\t\tCutter</item>
+        <item>•\t\t\tCycle Brakes</item>
+        <item>•\t\t\tDC Motors</item>
+        <item>•\t\t\tDPDT Switches</item>
+        <item>•\t\t\tExtension Board</item>
+        <item>•\t\t\tFecl3 Solution</item>
+        <item>•\t\t\tIR Led</item>
+        <item>•\t\t\tIron Plate</item>
+        <item>•\t\t\tIron Rods(Drone Obstruction)</item>
+        <item>•\t\t\tMD-119 Board</item>
+        <item>•\t\t\tNuts and Bolts Box</item>
+        <item>•\t\t\tQuadCop Frame with 3 Motors</item>
+        <item>•\t\t\tQuad Remote</item>
+        <item>•\t\t\tScrew Driver Set</item>
+        <item>•\t\t\tSmall Wooden Planks</item>
+        <item>•\t\t\tSocket Accessory Box</item>
+        <item>•\t\t\tSoldering Rod</item>
+        <item>•\t\t\tThermocol</item>
+        <item>•\t\t\tTorque Switch Boards</item>
+        <item>•\t\t\tTransporter Material</item>
+        <item>•\t\t\tUltra Motor Charger(3A/48V)</item>
+        <item>•\t\t\tWheels</item>
     </string-array>
 
     <string-array name="all_members">
