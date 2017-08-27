@@ -114,7 +114,8 @@ public class ItemEditingActivity extends AppCompatActivity {
                 Map<String, Object> userUpdates = new HashMap<String, Object>();
                 userUpdates.put(heading,newText);
                 mDatabaseReference.updateChildren(userUpdates);
-                Log.i("TEST","Data Sent");
+                //Log.i("TEST","Data Sent");
+                Toast.makeText(ItemEditingActivity.this,"Data Saved in the Cloud (^_^)",Toast.LENGTH_SHORT).show();
 
                 /*
                 To add data value to a key
