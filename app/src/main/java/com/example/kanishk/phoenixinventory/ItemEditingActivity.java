@@ -98,7 +98,10 @@ public class ItemEditingActivity extends AppCompatActivity {
         faab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String newText = editText.getText().toString()+ "\n\nby -"+username;
+                String newText = editText.getText().toString();
+                if(!username.equals("Kanishk")){
+                    newText = newText + "\n\nby -"+username;
+                }
 //                String newText = editText.getText().toString();
 //                if(!newText.equals(""))
 //                {
